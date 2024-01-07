@@ -20,12 +20,13 @@ Extract bin file from the archive:
 tar -xzvf line-counter-aarch64-apple-darwin.tar
 ```
 
-Move the `line-counter` binary to `/usr/local/bin`:
+- Move the `line-counter` binary to `/usr/local/bin` if you use **mac**
+- Move the `line-counter` binary to `/usr/bin` if you use **linux**
   
 ```bash
-sudo mv line-counter /usr/local/bin
+sudo mv line-counter /usr/bin
 ```
-> sudo is required to move the binary to `/usr/local/bin`.
+> sudo is required to move the binary to `/usr/bin`.
 
 ## Usage
 
