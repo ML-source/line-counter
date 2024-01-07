@@ -14,9 +14,9 @@ pub fn run(files: Vec<String>) -> HashMap<String, u64> {
 
     let extension = get_extension(&file);
     let lines = calc::count_lines(&file);
-    total = lines + total;
+    total += lines;
 
-    if line_stats.get(&extension) == None {
+    if line_stats.get(&extension).is_none() {
       line_stats.insert(extension, lines);
     } else {
       let old_count = line_stats.get(&extension).unwrap();

@@ -1,5 +1,3 @@
-#![warn(clippy::all, clippy::pedantic)]
-
 mod files;
 mod counter;
 mod printer;
