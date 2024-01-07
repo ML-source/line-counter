@@ -7,3 +7,4 @@ edition = "2021"
 clap = { version = "4.4.13", features = ["derive"] }
 walkdir = "2.4.0"
 indicatif = { version = "*", features = ["rayon"] }
+color-print = "0.3.5"
