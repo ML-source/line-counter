@@ -7,30 +7,25 @@
 
 Line-counter currently supports Intel Macs, M1 ARM Macs, and Linux. The tool has been tested on these platforms and is expected to work on other Unix-like systems as well. If you encounter any issues running line-counter on your system, please let me know by creating an issue on the GitHub repository.
 
-<details>
 
-  <summary>Unix (MacOs/Linux) manual install</summary>
+### Unix (MacOs/Linux) manual install
 
-  This instruction works for both Linux and macOS.
+This instruction works for both Linux and macOS.
 
-  Download the latest release from the [releases page](https://github.com/leonovk/line-counter/releases) for your platform.
-  For example, if you are using an Intel Mac, download the `line-counter-x86_64-apple-darwin.tar.gz` file. For an M1 Mac, download the `line-counter-aarch64-apple-darwin.tar.gz` file.
+Download the latest release from the [releases page](https://github.com/leonovk/line-counter/releases) for your platform. For example, if you are using an Intel Mac, download the `line-counter-x86_64-apple-darwin.tar.gz` file. For an M1 Mac, download the `line-counter-aarch64-apple-darwin.tar.gz` file.
 
-  Extract bin file from the archive:
+Extract bin file from the archive:
   
-  ```bash
-  tar -xzvf line-counter-aarch64-apple-darwin.tar
-  ```
+```bash
+tar -xzvf line-counter-aarch64-apple-darwin.tar
+```
 
-  Move the `line-counter` binary to `/usr/local/bin`:
+Move the `line-counter` binary to `/usr/local/bin`:
   
-  ```bash
-  sudo mv line-counter /usr/local/bin
-  ```
-
-  > sudo is required to move the binary to `/usr/local/bin`.
-
-</details>
+```bash
+sudo mv line-counter /usr/local/bin
+```
+> sudo is required to move the binary to `/usr/local/bin`.
 
 ## Usage
 
