@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use color_print::cprintln;
+use std::collections::HashMap;
 
 pub fn print_hash(hash: HashMap<String, u64>) {
     cprintln!("<green><bold>RESULT</></>");

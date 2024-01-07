@@ -1,18 +1,23 @@
 use walkdir::WalkDir;
 
 pub fn get_files(path: &String) -> Vec<String> {
-  let mut result = Vec::new();
+    let mut result = Vec::new();
 
-  for entry in WalkDir::new(path).into_iter().filter_map(std::result::Result::ok) {
-      let is_hidden = entry.file_name().to_str().is_some_and(|s| s.starts_with('.'));
+    for entry in WalkDir::new(path)
+        .into_iter()
+        .filter_map(std::result::Result::ok)
+    {
+        let is_hidden = entry
+            .file_name()
+            .to_str()
+            .is_some_and(|s| s.starts_with('.'));
 
-      if entry.file_type().is_file() && !is_hidden {
-          result.push(entry.path().display().to_string());
+        if entry.file_type().is_file() && !is_hidden {
+            result.push(entry.path().display().to_string());
+        }
+    }
 
-      }
-  }
-
-  result
+    result
 }
 
 pub fn get_extension(path: &String) -> String {
@@ -26,7 +31,7 @@ pub fn get_extension(path: &String) -> String {
 
     match parts.last() {
         Some(el) => (*el).to_string(),
-        None => "could not determine file extension".to_string()
+        None => "could not determine file extension".to_string(),
     }
 }
 

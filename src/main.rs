@@ -1,5 +1,5 @@
-mod files;
 mod counter;
+mod files;
 mod printer;
 
 use clap::Parser;
@@ -10,7 +10,7 @@ use clap::Parser;
 struct Args {
     /// directory with files
     #[arg(short, long)]
-    path: String
+    path: String,
 }
 
 fn main() {
