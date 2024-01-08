@@ -10,26 +10,29 @@ use self_update::cargo_crate_version;
 #[command(author, version, about, long_about = None)]
 struct Args {
     /// directory with files
-    #[arg(short, long, default_value_t = String::from(""))]
-    path: String,
+    #[arg(short, long)]
+    path: Option<String>,
 
-    /// update
-    #[arg(short, long, default_value_t = String::from("non"))]
-    update: String,
+    /// update example 'latest'
+    #[arg(short, long)]
+    update: Option<String>,
 }
 
 fn main() {
     let args = Args::parse();
 
-    if args.update != "non" {
+    if args.update != None {
         if let Err(e) = update() {
             println!("[ERROR] {}", e);
             ::std::process::exit(1);
         }
-    } else {
-        let files_list = files::get_files(&args.path);
+    } else if args.path != None {
+        let path = args.path.unwrap();
+        let files_list = files::get_files(&path);
         let result = counter::run(files_list);
         printer::print_hash(result);
+    } else {
+        println!("enter the command --help or any other command to use the program");
     }
 }
 
