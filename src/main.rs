@@ -10,7 +10,7 @@ use self_update::cargo_crate_version;
 #[command(author, version, about, long_about = None)]
 struct Args {
     /// directory with files
-    #[arg(short, long, default_value_t = String::from("./"))]
+    #[arg(short, long, default_value_t = String::from(""))]
     path: String,
 
     /// update
@@ -22,7 +22,10 @@ fn main() {
     let args = Args::parse();
 
     if args.update != "non" {
-        let _ = update();
+        if let Err(e) = update() {
+            println!("[ERROR] {}", e);
+            ::std::process::exit(1);
+        }
     } else {
         let files_list = files::get_files(&args.path);
         let result = counter::run(files_list);
@@ -39,6 +42,7 @@ fn update() -> Result<(), Box<dyn (::std::error::Error)>> {
         .current_version(cargo_crate_version!())
         .build()?
         .update()?;
+
     println!("Update status: `{}`!", status.version());
     Ok(())
 }
