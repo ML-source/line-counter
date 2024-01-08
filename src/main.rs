@@ -23,12 +23,11 @@ fn main() {
 
     if args.update != "non" {
         let _ = update();
-        return;
+    } else {
+        let files_list = files::get_files(&args.path);
+        let result = counter::run(files_list);
+        printer::print_hash(result);
     }
-
-    let files_list = files::get_files(&args.path);
-    let result = counter::run(files_list);
-    printer::print_hash(result);
 }
 
 fn update() -> Result<(), Box<dyn (::std::error::Error)>> {
