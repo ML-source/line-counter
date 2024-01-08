@@ -589,7 +589,7 @@ checksum = "302d7ab3130588088d277783b1e2d2e10c9e9e4a16dd9050e6ec93fb3e7048f4"
 
 [[package]]
 name = "line-counter"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "clap",
  "color-print",
