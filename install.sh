@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 # eg. release-lab/whatchanged
 target=""
 owner="leonovk"
