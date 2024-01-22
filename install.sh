@@ -98,8 +98,6 @@ else
 fi
 
 echo "[1/2] Download ${asset_uri} to ${downloadFolder}"
-rm -f ${downloaded_file}
-curl --fail --location --output "${downloaded_file}" "${asset_uri}"
 
 echo "[2/2] Install ${exe_name} to the ${executable_folder}"
 tar -xz -f ${downloaded_file} -C ${executable_folder}
