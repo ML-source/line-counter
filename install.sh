@@ -100,7 +100,8 @@ fi
 echo "[1/2] Download ${asset_uri} to ${downloadFolder}"
 
 echo "[2/2] Install ${exe_name} to the ${executable_folder}"
-tar -xz -f ${downloaded_file} -C ${executable_folder}
+tar -xz -f ${downloaded_file}
+mv "line-counter" /usr/bin
 
 echo "${exe_name} was installed successfully to ${exe}"
 if command -v $exe_name --version >/dev/null; then
