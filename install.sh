@@ -22,11 +22,11 @@ get_os(){
 get_folder() {
     os=$(uname -s | awk '{print tolower($0)}')
     if [ "$os" = "linux" ]; then
-        echo "/usr/bin"
+        echo "./usr/bin"
     elif [ "$os" = "darwin" ]; then
-        echo "/usr/local/bin"
+        echo "./usr/local/bin"
     else
-        echo "/usr/local/bin"
+        echo "./usr/local/bin"
     fi
 }
 
