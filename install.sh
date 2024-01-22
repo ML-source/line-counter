@@ -10,8 +10,14 @@ githubApiUrl=""
 version=""
 
 get_os(){
-    # darwin: Darwin
-    echo $(uname -s | awk '{print tolower($0)}')
+    os=$(uname -s | awk '{print tolower($0)}')
+    if [ "$os" = "linux" ]; then
+        echo "unknown-linux-gnu"
+    elif [ "$os" = "darwin" ]; then
+        echo "apple-darwin"
+    else
+        echo $os
+    fi
 }
 
 # parse flag
@@ -58,7 +64,7 @@ downloadFolder="${TMPDIR:-/tmp}"
 mkdir -p ${downloadFolder} # make sure download folder exists
 os=$(get_os)
 arch=$(uname -m)
-file_name="${exe_name}_${os}_${arch}.tar.gz" # the file name should be download
+file_name="${exe_name}_${arch}_${os}.tar.gz" # the file name should be download
 downloaded_file="${downloadFolder}/${file_name}" # the file path should be download
 executable_folder="/usr/local/bin" # Eventually, the executable file will be placed here
 
