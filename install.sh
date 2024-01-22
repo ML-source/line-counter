@@ -19,6 +19,17 @@ get_os(){
     fi
 }
 
+get_folder() {
+    os=$(uname -s | awk '{print tolower($0)}')
+    if [ "$os" = "linux" ]; then
+        echo "/usr/bin"
+    elif [ "$os" = "darwin" ]; then
+        echo "/usr/local/bin"
+    else
+        echo "/usr/local/bin"
+    fi
+}
+
 # parse flag
 for i in "$@"; do
     case $i in
@@ -65,7 +76,7 @@ os=$(get_os)
 arch=$(uname -m)
 file_name="${exe_name}-${arch}-${os}.tar.gz" # the file name should be download
 downloaded_file="${downloadFolder}/${file_name}" # the file path should be download
-executable_folder="/usr/local/bin" # Eventually, the executable file will be placed here
+executable_folder=$(get_folder) # Eventually, the executable file will be placed here
 
 # if version is empty
 if [ -z "$version" ]; then
@@ -86,22 +97,17 @@ else
     asset_uri="${githubUrl}/${owner}/${repo}/releases/download/${version}/${file_name}"
 fi
 
-echo "[1/3] Download ${asset_uri} to ${downloadFolder}"
+echo "[1/2] Download ${asset_uri} to ${downloadFolder}"
 rm -f ${downloaded_file}
 curl --fail --location --output "${downloaded_file}" "${asset_uri}"
 
-echo "[2/3] Install ${exe_name} to the ${executable_folder}"
+echo "[2/2] Install ${exe_name} to the ${executable_folder}"
 tar -xz -f ${downloaded_file} -C ${executable_folder}
 exe=${executable_folder}/${exe_name}
 chmod +x ${exe}
 
-echo "[3/3] Set environment variables"
 echo "${exe_name} was installed successfully to ${exe}"
 if command -v $exe_name --version >/dev/null; then
-    echo "Run '$exe_name --help' to get started"
-else
-    echo "Manually add the directory to your \$HOME/.bash_profile (or similar)"
-    echo "  export PATH=${executable_folder}:\$PATH"
     echo "Run '$exe_name --help' to get started"
 fi
 
