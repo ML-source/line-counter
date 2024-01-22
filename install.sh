@@ -9,8 +9,8 @@ fi
 
 # eg. release-lab/whatchanged
 target=""
-owner=""
-repo=""
+owner="leonovk"
+repo="line-counter"
 exe_name=""
 githubUrl=""
 githubApiUrl=""
@@ -76,15 +76,6 @@ for i in "$@"; do
 done
 
 args=(`echo $target | tr '/' ' '`)
-
-if [ ${#args[@]} -ne 2 ]; then
-    echo "ERROR: invalid params for repo '$1'"
-    echo "ERROR: the argument should be format like 'owner/repo'"
-    exit 1
-else
-    owner=${args[0]}
-    repo=${args[1]}
-fi
 
 if [ -z "$exe_name" ]; then
     exe_name=$repo
