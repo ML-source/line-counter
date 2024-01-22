@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# eg. release-lab/whatchanged
 target=""
 owner="leonovk"
 repo="line-counter"
@@ -64,7 +63,7 @@ downloadFolder="${TMPDIR:-/tmp}"
 mkdir -p ${downloadFolder} # make sure download folder exists
 os=$(get_os)
 arch=$(uname -m)
-file_name="${exe_name}_${arch}_${os}.tar.gz" # the file name should be download
+file_name="${exe_name}-${arch}_${os}.tar.gz" # the file name should be download
 downloaded_file="${downloadFolder}/${file_name}" # the file path should be download
 executable_folder="/usr/local/bin" # Eventually, the executable file will be placed here
 
