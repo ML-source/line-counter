@@ -2,11 +2,6 @@
 
 set -e
 
-if [ $# -eq 0 ]; then
-    echo "ERROR: Need to specify the install repository"
-    exit 1
-fi
-
 # eg. release-lab/whatchanged
 target=""
 owner="leonovk"
