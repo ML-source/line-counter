@@ -1,5 +1,6 @@
 # Test
 ## Doc
-[Ссылка на другой документ](test.md)
+
+[test.md](https://leonovk.github.io/line-counter/test)
 
 lol
