@@ -22,11 +22,11 @@ get_os(){
 get_folder() {
     os=$(uname -s | awk '{print tolower($0)}')
     if [ "$os" = "linux" ]; then
-        echo "./usr/bin"
+        echo "/usr/bin"
     elif [ "$os" = "darwin" ]; then
-        echo "./usr/local/bin"
+        echo "/usr/local/bin"
     else
-        echo "./usr/local/bin"
+        echo "/usr/local/bin"
     fi
 }
 
@@ -103,8 +103,6 @@ curl --fail --location --output "${downloaded_file}" "${asset_uri}"
 
 echo "[2/2] Install ${exe_name} to the ${executable_folder}"
 tar -xz -f ${downloaded_file} -C ${executable_folder}
-exe=${executable_folder}/${exe_name}
-chmod +x ${exe}
 
 echo "${exe_name} was installed successfully to ${exe}"
 if command -v $exe_name --version >/dev/null; then
