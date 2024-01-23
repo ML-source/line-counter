@@ -32,7 +32,7 @@ fn main() {
         let result = counter::run(files_list);
         printer::print_hash(result);
     } else {
-        println!("enter the command --help or any other command to use the program");
+        println!("enter the command --help or any other command to use the program!");
     }
 }
 
