@@ -1,5 +1,6 @@
 # Line-counter
-### program to count lines of code in a project
+
+## program to count lines of code in a project
 
 ![Build Status](https://github.com/leonovk/line-counter/actions/workflows/ci.yml/badge.svg)
 
@@ -7,26 +8,21 @@
 
 Line-counter currently supports Intel Macs, M1 ARM Macs, and Linux. The tool has been tested on these platforms and is expected to work on other Unix-like systems as well. If you encounter any issues running line-counter on your system, please let me know by creating an issue on the GitHub repository.
 
-
-### Unix (MacOs/Linux) manual install
+### Unix (MacOS/Linux)
 
 This instruction works for both Linux and macOS.
 
-Download the latest release from the [releases page](https://github.com/leonovk/line-counter/releases) for your platform. For example, if you are using an Intel Mac, download the `line-counter-x86_64-apple-darwin.tar.gz` file. For an M1 Mac, download the `line-counter-aarch64-apple-darwin.tar.gz` file.
-
-Extract bin file from the archive:
-  
 ```bash
-tar -xzvf line-counter-aarch64-apple-darwin.tar
+curl -fsSL https://raw.githubusercontent.com/leonovk/line-counter/master/install.sh | bash
 ```
 
-- Move the `line-counter` binary to `/usr/local/bin` if you use **mac**
-- Move the `line-counter` binary to `/usr/bin` if you use **linux**
-  
+You can enter the following command to verify that the installation was successful.
+
 ```bash
-sudo mv line-counter /usr/bin
+line-counter --version
 ```
-> sudo is required to move the binary to `/usr/bin`.
+
+Command `--help` will offer you a list of possible commands
 
 ## Usage
 
@@ -35,11 +31,13 @@ line-counter -p test
 ```
 
 Example output:
-```
+
+```shel
 RESULT
 txt: 2
 total: 2
 ```
+
 For more detailed information, use the help command:
 
 ```bash
